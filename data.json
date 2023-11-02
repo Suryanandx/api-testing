@@ -1,0 +1,30 @@
+{
+    "items": [
+      {
+        "id": 1,
+        "name": "Smartphone",
+        "description": "A high-end smartphone with advanced features and a stunning display."
+      },
+      {
+        "id": 2,
+        "name": "Laptop",
+        "description": "A powerful laptop suitable for gaming and professional work."
+      },
+      {
+        "id": 3,
+        "name": "Coffee Maker",
+        "description": "A modern coffee maker that brews your favorite coffee in minutes."
+      },
+      {
+        "id": 4,
+        "name": "Book",
+        "description": "A classic novel that takes you on an unforgettable journey."
+      },
+      {
+        "id": 5,
+        "name": "Fitness Tracker",
+        "description": "A fitness tracker to monitor your daily activities and improve your health."
+      }
+    ]
+  }
+  
