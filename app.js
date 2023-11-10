@@ -7,8 +7,9 @@ const app = express();
 // Configure body-parser for handling JSON data
 app.use(bodyParser.json());
 
-// MongoDB connection setup
-mongoose.connect('mongodb://localhost:27017/k6', {
+// MongoDB connection setup - mongodb://localhost:27017/k6
+//
+mongoose.connect('mongodb+srv://suryanand:r6CQfBbsurdwSBBQ@admin-portal.wkhkoro.mongodb.net/k6', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -28,7 +29,7 @@ const itemSchema = new mongoose.Schema({
 
 const Item = mongoose.model('Item', itemSchema);
 
-// Create a new item
+// Create a new itemd
 app.post('/items', async (req, res) => {
   try {
     const { name, description } = req.body;

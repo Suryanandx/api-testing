@@ -2,24 +2,30 @@ import http from 'k6/http';
 import { check, sleep } from 'k6';
 
 export let options = {
-  vus: 10, // Number of virtual users
+  vus: 15, // Number of virtual users
   duration: '30s', // Test duration
 };
 
 export default function () {
   const baseUrl = 'http://localhost:8080';
 
-  // Test creating a new item
+  // Generate a unique name and description based on the virtual user's ID
+  const uniqueName = `LoadTestItem-${__VU}`;
+  const uniqueDescription = `LoadTestDescription-${__VU}`;
+
   const createItemPayload = JSON.stringify({
-    name: 'LoadTestItem',
-    description: 'LoadTestDescription',
+    name: uniqueName,
+    description: uniqueDescription,
   });
+
   const createItemParams = {
     headers: {
       'Content-Type': 'application/json',
     },
   };
+
   const createItemRes = http.post(`${baseUrl}/items`, createItemPayload, createItemParams);
+
   check(createItemRes, {
     'Create Item: status is 201': (r) => r.status === 201,
   });
