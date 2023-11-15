@@ -1,0 +1,27 @@
+name: K6 Automation Test
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  k6_test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: |
+          npm install
+
+      - name: Run K6 tests
+        run: |
+          npx k6 run load.js

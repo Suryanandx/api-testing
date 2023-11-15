@@ -2,12 +2,12 @@ import http from 'k6/http';
 import { check, sleep } from 'k6';
 
 export let options = {
-  vus: 15, // Number of virtual users
-  duration: '30s', // Test duration
+  vus: 20, // Number of virtual users
+  duration: '45s', // Test duration
 };
 
 export default function () {
-  const baseUrl = 'http://localhost:8080';
+  const baseUrl = 'https://api-testing-qvm5.onrender.com';
 
   // Generate a unique name and description based on the virtual user's ID
   const uniqueName = `LoadTestItem-${__VU}`;
